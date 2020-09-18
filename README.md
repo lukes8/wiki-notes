@@ -15,5 +15,9 @@ Copy whole folder structure without files excluding three folders target, .idea,
 robocopy SourceFolder DestFolder /e /xf * /xd "target" /xd ".idea" /xd ".git" /log:log_robocopy.txt
 ```
 **Tip:** 
-very useful in case of project backup
+very useful in case of project backup, you can exclude other big folders like node_modules etc.
 
+Copy all .yml files in folders including sub-folder structure except empty ones
+```
+robocopy SourceFolder DestFolder /s *.yml /xd "target" /xd ".idea" /xd ".git" /log:log_robocopy.txt
+```
