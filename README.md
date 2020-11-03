@@ -64,3 +64,9 @@ Skip javadoc generation during build
 mvn clean install -Dmaven.javadoc.skip=true
 ```
 
+Packages all needed files (inc. copying webapp resources) into WAR file and finally install it to the maven local .repository
+```
+mvn war:war install:install
+```
+**Tip:**
+very useful if you have updated only some javascripts or other frontend stuffs and want to build your BIG app simply and faster ie. except of compile and test goals
