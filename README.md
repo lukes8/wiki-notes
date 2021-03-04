@@ -71,7 +71,7 @@ mvn war:war install:install
 **Tip:**
 very useful if you have updated only some javascripts or other frontend stuffs and want to build your BIG app simply and faster ie. except of compile and test goals
 
-IDEA Intell
+IntelliJ IDEA Tips & Tricks
 ---- 
 The Multiple Cursors
 Caret cloning 
