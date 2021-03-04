@@ -70,3 +70,25 @@ mvn war:war install:install
 ```
 **Tip:**
 very useful if you have updated only some javascripts or other frontend stuffs and want to build your BIG app simply and faster ie. except of compile and test goals
+
+IDEA Intell
+---- 
+The Multiple Cursors
+Caret cloning 
+```
+The commands are issued by pressing Ctrl , then pressing it again and not releasing. While still holding Ctrl, you can press ↑ and ↓ arrows to clone cursor to the line above or bellow.
+```
+
+Multiple Cursors
+```
+When holding Alt + Shift, clicking on a location creates a new cursor on that location in addition to all the already existing cursors.
+```
+
+Select All occurrences
+```
+Ctrl + Shift + Alt + J
+```
+Add occurrence (good alternative for Select All occurrences)
+```
+Alt + J
+```
