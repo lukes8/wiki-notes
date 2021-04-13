@@ -92,3 +92,59 @@ Add occurrence (good alternative for Select All occurrences)
 ```
 Alt + J
 ```
+
+Power Shell Tips & Tricks
+---- 
+Get-Date and Set-Date feature
+```
+Set the date in simple way
+Set-Date "09/04/2021"   
+
+Returns current set date
+Get-Date    
+
+Set the date with current time
+set-date -date ("09/04/2021 " + (Get-Date).ToString("hh:mm:ss"));
+
+```
+
+Sync time clock
+```
+Resync the clock of machine to current date time
+W32tm /resync /force;
+
+```
+Note: you might need to have admin privilegies for set of date or resync feature
+you can 
+
+Execution policy
+```
+Returns if your machine has osme restrictions policies in setup
+Get-ExecutionPolicy
+
+```
+
+Sample script with usage Date and resync (your_script.ps1)
+```
+"--------------START SCRIPT";
+
+set-date -date ("09/04/2021 " + (Get-Date).ToString("hh:mm:ss"));
+
+"Date was updated and now it's waiting 30s before sync!";
+Start-Sleep -s 30;
+
+W32tm /resync /force;
+
+"Clock was sync to current date time!";
+
+"--------------END SCRIPT";
+
+```
+
+You can use above script and call under cmd batch file if you encouter on problem with running of script (policies etc.)
+```
+@echo off
+powershell.exe -noprofile -executionpolicy bypass %MY_SCRIPTS%\your_script.ps1
+timeout 10
+```
+Note: don't forget set up your user environment property where your scripts are located ie. MY_SCRIPTS or you can ignore it
