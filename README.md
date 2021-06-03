@@ -91,7 +91,7 @@ Deploy/Push the jars or ears to jFrog specified on local settings.xml
 ```
 mvn release:perform
 ```
-**Tips:**
+**Tip:**
 tag is basically something like branch but only mark or naming for specified commit so then you can checkout on this tag much more easier way than on commit specified by its number
 
 Checkout from SCM URL as remote repository on tagged release version ie. 1.1.42
@@ -178,3 +178,30 @@ powershell.exe -noprofile -executionpolicy bypass %MY_SCRIPTS%\your_script.ps1
 timeout 10
 ```
 Note: don't forget set up your user environment property where your scripts are located ie. MY_SCRIPTS or you can ignore it
+
+Git Tips & Tricks
+---- 
+```
+git config --global user.email <email> && git config --global user.name <username>
+git log --oneline
+
+Undo changes, the last commit will be removed
+git reset --soft HEAD~1
+$ git log --oneline
+
+3fad532  Last commit   (HEAD)
+3bnaj03  Commit before HEAD   (HEAD~1)
+
+```
+
+Networking Tips & Tricks
+---- 
+ssh-agent is a background program that handles passwords for SSH private keys.
+it runs the agent in background
+eval `ssh-agent -s`
+
+The ssh-add command prompts the user for a private key password and adds it to the list maintained by ssh-agent .
+ssh-add /.ssh/your_private_key
+
+**Tip:**
+basically you have to use the ssh-agent to use private key for remote connection without prompt, it is happening automatically without our force
