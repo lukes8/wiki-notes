@@ -198,10 +198,13 @@ Networking Tips & Tricks
 ---- 
 ssh-agent is a background program that handles passwords for SSH private keys.
 it runs the agent in background
+```
 eval `ssh-agent -s`
+```
 
 The ssh-add command prompts the user for a private key password and adds it to the list maintained by ssh-agent .
+```
 ssh-add /.ssh/your_private_key
-
+```
 **Tip:**
 basically you have to use the ssh-agent to use private key for remote connection without prompt, it is happening automatically without our force
