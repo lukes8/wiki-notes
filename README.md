@@ -71,6 +71,36 @@ mvn war:war install:install
 **Tip:**
 very useful if you have updated only some javascripts or other frontend stuffs and want to build your BIG app simply and faster ie. except of compile and test goals
 
+
+Clean the release property and backup files eg. pom.xml.releaseBackup, release.properties
+```
+mvn release:clean
+```
+
+Preparation phase for release when it checks staging area (if exists no modified files)
+Checks last version from maven-metadata.xml on jFrog to ensure that we are now on correct version (consistency check)
+Create release version from snapshot ie. modify version in project pom.xml from 1.1.42-SNAPSHOT to 1.1.42
+Create tag as release version ie. 1.1.42
+Create another development version (snapshot) ie. modify version in project pom.xml from 1.1.42 to 1.1.43-SNAPSHOT
+```
+mvn release:prepare
+```
+
+Checkout from SCM URL as remote repository on tagged release version ie. 1.1.42
+Deploy/Push the jars or ears to jFrog specified on local settings.xml
+```
+mvn release:perform
+```
+**Tips:**
+tag is basically something like branch but only mark or naming for specified commit so then you can checkout on this tag much more easier way than on commit specified by its number
+
+Checkout from SCM URL as remote repository on tagged release version ie. 1.1.42
+Deploy/Push the jars or ears to jFrog specified on passed settings.xml, we might need to access under different user due to privilegies (jFrog has some permissions to approach for specified users)
+```
+mvn release:perform -s /path/explicit-settings.xml
+```
+
+
 IntelliJ IDEA Tips & Tricks
 ---- 
 The Multiple Cursors
